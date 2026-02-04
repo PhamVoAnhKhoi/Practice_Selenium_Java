@@ -1,5 +1,7 @@
 package Railway;
 
+import java.util.Iterator;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -29,10 +31,44 @@ public class LoginPage extends GeneralPage {
 	}	
 	
 	public HomePage login(String username, String password) {
-		this.getTxtUsername().sendKeys(username);
-		this.getTxtPassword().sendKeys(password);
-		this.getBtnLogin().click();
-		
-		return new HomePage();
+	    waitForVisible(txtUsername).sendKeys(username);
+
+	    waitForVisible(txtPassword).clear();
+	    waitForVisible(txtPassword).sendKeys(password);
+
+	    waitForClickable(btnLogin).click();
+	    
+	    return new HomePage();
+	}
+	
+	public boolean isLoginSuccess() {
+		try {
+			return getlblWelcomeMessage().isDisplayed();
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean getInvalidErrorIsVisible() {
+		try {
+			return getLblLoginErrorMsg().isDisplayed();
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
+	
+	public void loginFailManyTime(String username, String password, int number) {
+		String passWord;
+		for(int i = 0; i<number; i++) {
+			// getTabLogin().click();
+			passWord = password + "" + i;
+			System.out.println(passWord);
+			login(username, "123456");
+
+			Constant.WEBDRIVER.navigate().refresh();
+			System.out.println("Login Failed " + i);
+		}
 	}
 }

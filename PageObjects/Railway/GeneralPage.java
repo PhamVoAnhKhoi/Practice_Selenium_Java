@@ -1,11 +1,15 @@
 package Railway;
 
 import java.awt.print.Pageable;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.bidi.browsingcontext.Locator;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import Constant.Constant;
 
 public class GeneralPage {
@@ -15,6 +19,7 @@ public class GeneralPage {
 	private final By tabLogin = By.xpath("//div[@id='menu']/descendant::a[normalize-space()='Login']");
 	private final By tabLogout = By.xpath("//div[@id='menu']/descendant::a[normalize-space()='Logout']");
 	private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
+
 	
 	protected WebElement getTabLogin() {
 		return Constant.WEBDRIVER.findElement(tabLogin);
@@ -36,4 +41,26 @@ public class GeneralPage {
 		this.getTabLogin().click();
 		return new LoginPage();
 	}
+	
+	protected WebDriverWait wait = 
+	        new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
+
+	    protected WebElement waitForVisible(By locator) {
+	        return wait.until(
+	            ExpectedConditions.visibilityOfElementLocated(locator)
+	        );
+	    }
+
+	    protected WebElement waitForClickable(By locator) {
+	        return wait.until(
+	            ExpectedConditions.elementToBeClickable(locator)
+	        );
+	    }
+
+	    protected boolean waitForInvisible(By locator) {
+	        return wait.until(
+	            ExpectedConditions.invisibilityOfElementLocated(locator)
+	        );
+	    }
+	
 }
