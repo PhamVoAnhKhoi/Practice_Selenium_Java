@@ -1,6 +1,8 @@
 package Common;
 
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.UUID;
 
@@ -28,8 +30,17 @@ public class Utilities {
     }
 
     // Generate random number
-    public static int generateRandomNumber(int bound) {
+
+    public static String generateRandomNumber() {
         Random random = new Random();
-        return random.nextInt(bound);
+        int number = 10000000 + random.nextInt(90000000);
+        return String.valueOf(number);
+    }
+
+    
+    public static String generateRandomEmailWithTimestamp() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        String timestamp = LocalDateTime.now().format(formatter);
+        return "user" + timestamp + "@mail.com";
     }
 }

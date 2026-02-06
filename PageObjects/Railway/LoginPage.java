@@ -9,6 +9,7 @@ import Constant.Constant;
 
 public class LoginPage extends GeneralPage {
 	
+	
 	private final By txtUsername = By.xpath("//input[@id='username']");
 	private final By txtPassword = By.xpath("//input[@id='password']");
 	private final By btnLogin = By.xpath("//input[@title='Login']");
@@ -64,11 +65,13 @@ public class LoginPage extends GeneralPage {
 		for(int i = 0; i<number; i++) {
 			// getTabLogin().click();
 			passWord = password + "" + i;
-			System.out.println(passWord);
+			log.info(passWord);
 			login(username, "123456");
 
 			Constant.WEBDRIVER.navigate().refresh();
-			System.out.println("Login Failed " + i);
+			log.info("Login Failed " + i);
 		}
 	}
+	
+	
 }
