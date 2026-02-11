@@ -3,6 +3,7 @@ package Railway;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -56,6 +57,7 @@ public class BookTicketPage extends GeneralPage {
 
 	//Button book ticket
 	public WebElement getBtnBookTicket() {
+		Utilities.scrollToElement(Constant.WEBDRIVER.findElement(btnBookTicket));
 		return Constant.WEBDRIVER.findElement(btnBookTicket);
 	}
 	
@@ -187,7 +189,7 @@ public class BookTicketPage extends GeneralPage {
 	}
 
 	
-	public Ticket getBookedTicket() {
+	public List<Ticket> getAllTickets() {
 
 	    Utilities.waitForVisible(tableHeaders);
 
@@ -196,26 +198,30 @@ public class BookTicketPage extends GeneralPage {
 	    List<WebElement> rows =
 	            Constant.WEBDRIVER.findElements(tableRows);
 
-	    if (rows.isEmpty()) {
-	        throw new RuntimeException("No ticket row found!");
+	    List<Ticket> tickets = new ArrayList<>();
+
+	    for (WebElement row : rows) {
+
+	        List<WebElement> cells =
+	                row.findElements(By.tagName("td"));
+
+	        Ticket ticket = new Ticket(
+	                getCell(cells, headerMap, "Depart Station"),
+	                getCell(cells, headerMap, "Arrive Station"),
+	                getCell(cells, headerMap, "Seat Type"),
+	                getCell(cells, headerMap, "Depart Date"),
+	                getCell(cells, headerMap, "Book Date"),
+	                getCell(cells, headerMap, "Expired Date"),
+	                getCell(cells, headerMap, "Amount"),
+	                getCell(cells, headerMap, "Total Price")
+	        );
+
+	        tickets.add(ticket);
 	    }
 
-	    WebElement lastRow = rows.get(rows.size() - 1);
-
-	    List<WebElement> cells =
-	            lastRow.findElements(By.tagName("td"));
-
-	    return new Ticket(
-	            getCell(cells, headerMap, "Depart Station"),
-	            getCell(cells, headerMap, "Arrive Station"),
-	            getCell(cells, headerMap, "Seat Type"),
-	            getCell(cells, headerMap, "Depart Date"),
-	            getCell(cells, headerMap, "Book Date"),
-	            getCell(cells, headerMap, "Expired Date"),
-	            getCell(cells, headerMap, "Amount"),
-	            getCell(cells, headerMap, "Total Price")
-	    );
+	    return tickets;
 	}
+
 
 	
 	private String getCell(List<WebElement> cells, Map<String, Integer> headerMap, String columnName) {

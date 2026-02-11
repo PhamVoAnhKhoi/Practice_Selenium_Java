@@ -6,8 +6,8 @@
       <class name="Railway.BookTicketTest">
         <methods>
           <include name="initalTest"/>
-          <include name="TC12"/>
           <include name="beforeMethod"/>
+          <include name="TC15"/>
         </methods>
       </class> <!-- Railway.BookTicketTest -->
     </classes>

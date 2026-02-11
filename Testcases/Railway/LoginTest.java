@@ -1,5 +1,6 @@
 package Railway;
 
+import Common.RailwayPageTab;
 import Common.Utilities;
 import Constant.Constant;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,7 +23,7 @@ public class LoginTest extends BaseTest {
 	public void initalTest() {
 		HomePage homePage = new HomePage();
 		homePage.open();
-		loginPage = homePage.gotoLoginPage();
+		loginPage = homePage.gotoPage(RailwayPageTab.LOGIN);
 		generalPage = new GeneralPage();
 	}
 	
@@ -134,8 +135,8 @@ public class LoginTest extends BaseTest {
 		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 		
 		//Navigate to FAQ tab
-		log.info("3. Click on \"FAQ\" tab");
-		generalPage.gotoFAQPage();
+		log.info("3. Click on 'FAQ' tab");
+		generalPage.gotoPage(RailwayPageTab.LOGIN);
 		
 		//LogOut Account
 		log.info("4. Click on 'Log out' tab");

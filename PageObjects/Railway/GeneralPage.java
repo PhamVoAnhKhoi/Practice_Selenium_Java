@@ -24,7 +24,7 @@ public class GeneralPage {
 	public static final Logger log = LoggerFactory.getLogger(GeneralPage.class);
 	
 	private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
-	private final By btnCloseAdvertisement = By.xpath("//div[@id='card']/descendant::div[@id='dismiss-button']");
+	private final By btnCloseAdvertisement = By.xpath("//div[@id='dismiss-button']");
 	
 	protected WebElement getlblWelcomeMessage() {
 		return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
@@ -47,28 +47,15 @@ public class GeneralPage {
 	}
 
 	
-	public LoginPage gotoLoginPage() {
-		clickTab(RailwayPageTab.LOGIN);
-		return new LoginPage();
+	public <T extends GeneralPage> T gotoPage(RailwayPageTab tab) {
+
+	    clickTab(tab);
+	    return (T) tab.getPage();
 	}
+
 	
 	//Gộp lại thành 1 step cho tất cả hàm goto
 	//Dùng enum ngoài testcase
-	
-	public RegisterPage gotoRegisterPage() {
-		clickTab(RailwayPageTab.REGISTER);
-		return new RegisterPage();
-	}
-	
-	public FAQPage gotoFAQPage() {
-		clickTab(RailwayPageTab.FAQ);
-		return new FAQPage();
-	}
-	
-	public BookTicketPage gotoBookTicketPage() {
-		clickTab(RailwayPageTab.BOOKTICKET);
-		return new BookTicketPage();
-	}
 	
 	public void logOutAccount() {
 		clickTab(RailwayPageTab.LOGOUT);

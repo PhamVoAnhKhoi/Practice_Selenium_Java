@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88818991-3b93-474b-9b21-8a9bf888908a" name="Changes" comment="" />
+    <list default="true" id="88818991-3b93-474b-9b21-8a9bf888908a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Common/RailwayPageTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Common/RailwayPageTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/Railway/BookTicketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/Railway/BookTicketPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/Railway/FAQPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/Railway/FAQPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/Railway/GeneralPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/Railway/GeneralPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/Railway/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/Railway/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/Railway/RandomEmailPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/Railway/RandomEmailPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testcases/Railway/BookTicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testcases/Railway/BookTicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testcases/Railway/CreateAccountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testcases/Railway/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testcases/Railway/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testcases/Railway/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testcases/Railway/RegisterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default suite/Default test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default suite/Default test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default suite/testng-failed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/emailable-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/junitreports/TEST-Railway.BookTicketTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/junitreports/TEST-Railway.BookTicketTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/junitreports/TEST-Railway.RegisterTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/junitreports/TEST-Railway.RegisterTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/testng-failed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/testng-results.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

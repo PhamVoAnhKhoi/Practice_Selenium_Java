@@ -2,6 +2,7 @@ package Railway;
 
 import Common.Utilities;
 import Common.Account;
+import Common.RailwayPageTab;
 import Constant.Constant;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
@@ -59,8 +60,8 @@ public class RegisterTest extends BaseTest {
 		homePage.open();
 		
 		log.info("2. Click on 'Register' tab");
-		generalPage.gotoLoginPage();
-		generalPage.gotoRegisterPage();
+		generalPage.gotoPage(RailwayPageTab.LOGIN);
+		generalPage.gotoPage(RailwayPageTab.REGISTER);
 		
 		//Register account with existed account
 		log.info("3. Enter information of the created account in Pre-condition");
@@ -148,7 +149,7 @@ public class RegisterTest extends BaseTest {
         railwayTab = Constant.WEBDRIVER.getWindowHandle();
         log.info("Railway Tab: " + railwayTab);
         
-        generalPage.gotoRegisterPage();
+        generalPage.gotoPage(RailwayPageTab.REGISTER);
         registerPage.registerAccount(email, password, confirmPassword, pid);
         
         log.info("AC Email: " + account.getEmail());
@@ -174,7 +175,8 @@ public class RegisterTest extends BaseTest {
         Constant.WEBDRIVER.switchTo().window(randomEmailTab);
         log.info("Switched back to Random Email tab");
         generalPage.closeAdIfPresent();
-        randomEmailPage.confirmCreatedAccountByEmail();
+        randomEmailPage.confirmCreatedAccountByEmail(account.getEmail(),"confirm");
+        //randomEmailPage.confirmCreatedAccountByEmail();
         log.info("Confirm successfully");
         
 	}

@@ -49,6 +49,17 @@ public class RandomEmailPage extends GeneralPage  {
 		return Constant.WEBDRIVER.findElement(actualEmailRandom);
 	}
 	
+	private By emailRow(String recipient, String subject){
+		return By.xpath("//tbody[@id='email_list']//tr[" +
+            ".//td[contains(normalize-space(.),'" + recipient + "')] and " +
+            ".//td[contains(normalize-space(.),'" + subject + "')]" +
+            "]");
+	}
+	
+	public WebElement getEmailRow(String recipient, String subject){
+		return Constant.WEBDRIVER.findElement(emailRow(recipient, subject));
+	}
+	
 	public WebElement getEmailConfirmCreated(){
 		return Constant.WEBDRIVER.findElement(emailConfirmCreated);
 	}
@@ -132,9 +143,9 @@ public class RandomEmailPage extends GeneralPage  {
 	    return this;
 	}
 	
-	public void confirmCreatedAccountByEmail(){
-		Utilities.waitForVisible(emailConfirmCreated);
-		getEmailConfirmCreated().click();
+	public void confirmCreatedAccountByEmail(String recipient, String subject){
+		Utilities.waitForVisible(emailRow(recipient,subject));
+		getEmailRow(recipient,subject).click();
 		Utilities.waitForVisible(confirmLink);
 		getConfirmLink().click();
 	}
