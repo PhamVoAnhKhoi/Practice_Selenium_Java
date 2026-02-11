@@ -1,10 +1,19 @@
 package Common;
 
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.UUID;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import Constant.Constant;
 
 public class Utilities {
 	// Get project root path
@@ -43,4 +52,30 @@ public class Utilities {
         String timestamp = LocalDateTime.now().format(formatter);
         return "user" + timestamp + "@mail.com";
     }
+    
+public static WebDriverWait wait = 
+	        new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(20));
+
+    	public static WebElement waitForVisible(By locator) {
+	        return wait.until(
+	            ExpectedConditions.visibilityOfElementLocated(locator)
+	        );
+	    }
+	    
+	    public static WebElement waitForClickable(By locator) {
+	        return wait.until(
+	            ExpectedConditions.elementToBeClickable(locator)
+	        );
+	    }
+
+	    public static boolean waitForInvisible(By locator) {
+	        return wait.until(
+	            ExpectedConditions.invisibilityOfElementLocated(locator)
+	        );
+	    }
+	    
+	    public static void scrollToElement(WebElement element) {
+	    	JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
+	    	js.executeScript("arguments[0].scrollIntoView({block:'center'});", element);
+	    }
 }

@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+import Common.RailwayPageTab;
 import Constant.Constant;
 
 public class GeneralPage {
@@ -23,28 +23,8 @@ public class GeneralPage {
 	
 	public static final Logger log = LoggerFactory.getLogger(GeneralPage.class);
 	
-	private final By tabLogin = By.xpath("//div[@id='menu']/descendant::a[normalize-space()='Login']");
-	private final By tabLogout = By.xpath("//div[@id='menu']/descendant::a[normalize-space()='Logout']");
-	private final By tabRegister = By.xpath("//div[@id='menu']/descendant::a[normalize-space()='Register']");
-	private final By tabFAQ = By.xpath("//div[@id='menu']/descendant::a[normalize-space()='FAQ']");
 	private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
 	private final By btnCloseAdvertisement = By.xpath("//div[@id='card']/descendant::div[@id='dismiss-button']");
-	
-	protected WebElement getTabLogin() {
-		return Constant.WEBDRIVER.findElement(tabLogin);
-	}
-	
-	protected WebElement getTabLogout() {
-		return Constant.WEBDRIVER.findElement(tabLogout);
-	}
-	
-	protected WebElement getTabFAQ() {
-		return Constant.WEBDRIVER.findElement(tabFAQ);
-	}
-	
-	protected WebElement getTabRegister() {
-		return Constant.WEBDRIVER.findElement(tabRegister);
-	}
 	
 	protected WebElement getlblWelcomeMessage() {
 		return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
@@ -62,36 +42,46 @@ public class GeneralPage {
 		return this.getlblWelcomeMessage().getText();
 	}
 	
+	public void clickTab(RailwayPageTab tab) {
+	    Constant.WEBDRIVER.findElement(tab.getLocator()).click();
+	}
+
+	
 	public LoginPage gotoLoginPage() {
-		this.getTabLogin().click();
+		clickTab(RailwayPageTab.LOGIN);
 		return new LoginPage();
 	}
 	
+	//Gộp lại thành 1 step cho tất cả hàm goto
+	//Dùng enum ngoài testcase
+	
 	public RegisterPage gotoRegisterPage() {
-		this.getTabRegister().click();
+		clickTab(RailwayPageTab.REGISTER);
 		return new RegisterPage();
-	}
-	public void navigateToRegisterPage() {
-		this.getTabRegister().click();
 	}
 	
 	public FAQPage gotoFAQPage() {
-		this.getTabFAQ().click();
+		clickTab(RailwayPageTab.FAQ);
 		return new FAQPage();
 	}
 	
+	public BookTicketPage gotoBookTicketPage() {
+		clickTab(RailwayPageTab.BOOKTICKET);
+		return new BookTicketPage();
+	}
+	
 	public void logOutAccount() {
-		this.getTabLogout().click();
+		clickTab(RailwayPageTab.LOGOUT);
 	}
 	
 	public boolean verifyLogOutAccount() {
 		
 		try {
-			log.info("Is Display: " + getTabLogout().isDisplayed());
-			return getTabLogout().isDisplayed();
+			return Constant.WEBDRIVER
+					.findElement(RailwayPageTab.LOGOUT.getLocator())
+					.isDisplayed();
 		}
 		catch(Exception e) {
-			log.info("Expection");
 			return false;
 		}
 	}
@@ -127,35 +117,5 @@ public class GeneralPage {
 	}
 	
 	
-		protected WebDriverWait wait = 
-	        new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(20));
-
-	    protected WebElement waitForVisible(By locator) {
-	        return wait.until(
-	            ExpectedConditions.visibilityOfElementLocated(locator)
-	        );
-	    }
-	    
-	    protected WebElement waitForClickable(By locator) {
-	        return wait.until(
-	            ExpectedConditions.elementToBeClickable(locator)
-	        );
-	    }
-
-	    protected boolean waitForInvisible(By locator) {
-	        return wait.until(
-	            ExpectedConditions.invisibilityOfElementLocated(locator)
-	        );
-	    }
-	    
-	    public void scrollToElement(By locator) {
-	    	WebElement element = waitForVisible(locator);
-	        JavascriptExecutor js = (JavascriptExecutor) driver;
-	        js.executeScript("arguments[0].scrollIntoView({block:'center'});", element);
-	    }
-	    
-	    public static void scrollToElement(WebElement element) {
-	    	JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
-	    	js.executeScript("arguments[0].scrollIntoView({block:'center'});", element);
-	    }
+		
 }

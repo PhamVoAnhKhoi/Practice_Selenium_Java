@@ -5,22 +5,24 @@ import java.util.Iterator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import Common.Utilities;
 import Constant.Constant;
 
 public class LoginPage extends GeneralPage {
 	
 	
-	private final By txtUsername = By.xpath("//input[@id='username']");
-	private final By txtPassword = By.xpath("//input[@id='password']");
+	private final By inputUsername = By.xpath("//input[@id='username']");
+	private final By inputPassword = By.xpath("//input[@id='password']");
 	private final By btnLogin = By.xpath("//input[@title='Login']");
 	private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+	private final By lblForgotPassword = By.xpath("");
 	
 	public WebElement getTxtUsername() {
-		return Constant.WEBDRIVER.findElement(txtUsername);
+		return Constant.WEBDRIVER.findElement(inputUsername);
 	}
 	
 	public WebElement getTxtPassword() {
-		return Constant.WEBDRIVER.findElement(txtPassword);
+		return Constant.WEBDRIVER.findElement(inputPassword);
 	}
 	
 	public WebElement getBtnLogin() {
@@ -32,12 +34,13 @@ public class LoginPage extends GeneralPage {
 	}	
 	
 	public HomePage login(String username, String password) {
-	    waitForVisible(txtUsername).sendKeys(username);
+		
+		Utilities.waitForVisible(inputUsername).sendKeys(username);
+		Utilities.waitForVisible(inputPassword).clear();
+		Utilities.waitForVisible(inputPassword).sendKeys(password);
 
-	    waitForVisible(txtPassword).clear();
-	    waitForVisible(txtPassword).sendKeys(password);
-
-	    waitForClickable(btnLogin).click();
+		Utilities.scrollToElement(getBtnLogin());
+	    getBtnLogin().click();
 	    
 	    return new HomePage();
 	}

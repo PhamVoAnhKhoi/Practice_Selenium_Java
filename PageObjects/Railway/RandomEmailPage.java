@@ -21,6 +21,7 @@ public class RandomEmailPage extends GeneralPage  {
 	private final By actualEmailRandom = By.xpath("//span[@id='email-widget']");
 	private final By emailConfirmCreated = By.xpath("//tbody[@id='email_list']/descendant::td[contains(normalize-space(.),'thanhletraining03@gmail.com')]");
 	private final By confirmLink = By.xpath("//div[@class='email']/descendant::a");
+	//private final By lblRegisterConfirmSuccess = By.xpath("//div[@id='content']//h1[normalize-space()='Registration Confirmed! You can now log in to the site']");
 		
 		
 	public RandomEmailPage open() {
@@ -62,11 +63,11 @@ public class RandomEmailPage extends GeneralPage  {
 	
 	public String generateUniqueEmail(String emailName){
 		getBtnEmailName().click();
-		waitForVisible(inputEmailName);
+		Utilities.waitForVisible(inputEmailName);
 		getInputEmailName().sendKeys(emailName);
 		getBtnSet().click();
 		toggleScrambleAddressIfSelected();
-		waitForVisible(actualEmailRandom);
+		Utilities.waitForVisible(actualEmailRandom);
 		
 		
 		return getActualEmailRandom().getText().trim();
@@ -74,7 +75,7 @@ public class RandomEmailPage extends GeneralPage  {
 	
 	public void toggleScrambleAddressIfSelected() {
 
-	    WebElement checkbox = waitForVisible(chkBoxScrambleAddress);
+	    WebElement checkbox = Utilities.waitForVisible(chkBoxScrambleAddress);
 	
 	    if (checkbox.isSelected()) {
 	        log.info("Checkbox already selected then clicking again to uncheck");
@@ -132,9 +133,9 @@ public class RandomEmailPage extends GeneralPage  {
 	}
 	
 	public void confirmCreatedAccountByEmail(){
-		waitForVisible(emailConfirmCreated);
+		Utilities.waitForVisible(emailConfirmCreated);
 		getEmailConfirmCreated().click();
-		waitForVisible(confirmLink);
+		Utilities.waitForVisible(confirmLink);
 		getConfirmLink().click();
 	}
 	

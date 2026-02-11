@@ -1,78 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-06T14:48:21 ICT" name="Default suite" finished-at="2026-02-06T14:48:58 ICT" duration-ms="36332">
+  <suite started-at="2026-02-10T19:12:21 GMT+07:00" name="Default suite" finished-at="2026-02-10T19:12:30 GMT+07:00" duration-ms="8981">
     <groups>
     </groups>
-    <test started-at="2026-02-06T14:48:21 ICT" name="Default test" finished-at="2026-02-06T14:48:58 ICT" duration-ms="36332">
-      <class name="Railway.RegisterTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.RegisterTest@3c41ed1d]" started-at="2026-02-06T14:48:21 ICT" name="beforeMethod" finished-at="2026-02-06T14:48:23 ICT" duration-ms="1085" status="PASS">
+    <test started-at="2026-02-10T19:12:21 GMT+07:00" name="Default test" finished-at="2026-02-10T19:12:30 GMT+07:00" duration-ms="8981">
+      <class name="Railway.BookTicketTest">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.BookTicketTest@1aa7ecca]" started-at="2026-02-10T19:12:21 GMT+07:00" name="beforeMethod" finished-at="2026-02-10T19:12:22 GMT+07:00" duration-ms="1176" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="initalTest()[pri:0, instance:Railway.RegisterTest@3c41ed1d]" started-at="2026-02-06T14:48:23 ICT" name="initalTest" finished-at="2026-02-06T14:48:23 ICT" duration-ms="16" status="PASS">
+        <test-method is-config="true" signature="initalTest()[pri:0, instance:Railway.BookTicketTest@1aa7ecca]" started-at="2026-02-10T19:12:22 GMT+07:00" name="initalTest" finished-at="2026-02-10T19:12:22 GMT+07:00" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initalTest -->
-        <test-method signature="TC07_Register_New_Account()[pri:0, instance:Railway.RegisterTest@3c41ed1d]" started-at="2026-02-06T14:48:23 ICT" name="TC07_Register_New_Account" finished-at="2026-02-06T14:48:58 ICT" duration-ms="35196" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element found by By.xpath: //tbody[@id='email_list']/descendant::td[contains(normalize-space(.),'thanhletraining03@gmail.com')], but... org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//tbody[@id='email_list']/descendant::td[contains(normalize-space(.),'thanhletraining03@gmail.com')]"}.
-(tried for 20 seconds with 500 milliseconds interval)
-Build info: version: '4.40.0', revision: 'b3333f1'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.110, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\anhkh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51406}, goog:processID: 2532, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51406/devtoo..., se:cdpVersion: 144.0.7559.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 56c5d9c5e0c459cdfca4742138892d8d]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element found by By.xpath: //tbody[@id='email_list']/descendant::td[contains(normalize-space(.),'thanhletraining03@gmail.com')], but... org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//tbody[@id='email_list']/descendant::td[contains(normalize-space(.),'thanhletraining03@gmail.com')]"}.
-(tried for 20 seconds with 500 milliseconds interval)
-Build info: version: '4.40.0', revision: 'b3333f1'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.110, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\anhkh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51406}, goog:processID: 2532, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51406/devtoo..., se:cdpVersion: 144.0.7559.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 56c5d9c5e0c459cdfca4742138892d8d
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-at Railway.GeneralPage.waitForVisible(GeneralPage.java:134)
-at Railway.RandomEmailPage.confirmCreatedAccountByEmail(RandomEmailPage.java:135)
-at Railway.RegisterTest.createAccout(RegisterTest.java:83)
-at Railway.RegisterTest.TC07_Register_New_Account(RegisterTest.java:42)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:744)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method signature="TC12()[pri:0, instance:Railway.BookTicketTest@1aa7ecca]" started-at="2026-02-10T19:12:22 GMT+07:00" name="TC12" finished-at="2026-02-10T19:12:30 GMT+07:00" duration-ms="7763" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC07_Register_New_Account -->
-      </class> <!-- Railway.RegisterTest -->
+        </test-method> <!-- TC12 -->
+      </class> <!-- Railway.BookTicketTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
