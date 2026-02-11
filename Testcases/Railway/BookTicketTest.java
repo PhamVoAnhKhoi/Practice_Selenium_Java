@@ -52,17 +52,17 @@ public class BookTicketTest extends BaseTest {
 		ticketPricePage = new TicketPricePage();
 		//Create new account
 		log.info("Pre-condition: an actived account is existing");
-//		createRandomEmail();
-//		createAccout(account.getEmail(), account.getPassword(), account.getPassword(), account.getPID());
-//		confirmCreationRequest();
-//		switchToRailwayTab();
+		createRandomEmail();
+		createAccout(account.getEmail(), account.getPassword(), account.getPassword(), account.getPID());
+		confirmCreationRequest();
+		switchToRailwayTab();
 		log.info("1. Navigate to QA Railway Website");
 	    homePage.open();
 
 	    log.info("2. Login with valid account");
 	    generalPage.gotoPage(RailwayPageTab.LOGIN);
-	    //loginPage.login(account.getEmail(), account.getPassword());
-	    loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+	    loginPage.login(account.getEmail(), account.getPassword());
+	    //loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 	}
 	
 	@Test
@@ -228,26 +228,60 @@ public class BookTicketTest extends BaseTest {
 
 	@Test
 	public void TC16() {
-		log.info("3. Book a ticket");
+
+	    log.info("3. Book a ticket");
 	    generalPage.gotoPage(RailwayPageTab.BOOKTICKET);
 
 	    bookTicketPage.selectDepartDate(1);
-	    //String expectedDepartDate = bookTicketPage.getSelectedDepartDate();
+	    String departDate = bookTicketPage.getSelectedDepartDate();
 
-	    String expectedDepart = "Nha Trang";
-	    String expectedArrive = "Huế";
-	    bookTicketPage.selectOptionDepartStation(expectedDepart);
-	    bookTicketPage.selectOptionArriveStation(expectedArrive);
+	    String depart = "Nha Trang";
+	    String arrive = "Huế";
+	    String seat = "Soft bed with air conditioner";
+	    String amount = "1";
 
-	    String expectedSeat = "Soft bed with air conditioner";
-	    bookTicketPage.selectOptionSeatType(expectedSeat);
-
+	    bookTicketPage.selectOptionDepartStation(depart);
+	    bookTicketPage.selectOptionArriveStation(arrive);
+	    bookTicketPage.selectOptionSeatType(seat);
 	    bookTicketPage.selectOptionTicketAmount(1);
-	    
+
 	    bookTicketPage.getBtnBookTicket().click();
-	    
-	    
+
+	    Assert.assertTrue(
+	            bookTicketPage.verifyLBLTicketBookedSuccessfullyIsDisplay()
+	    );
+
+	    Ticket expectedTicket = new Ticket(
+	            depart,
+	            arrive,
+	            seat,
+	            departDate,
+	            null,
+	            null,
+	            amount,
+	            null
+	    );
+
+	    log.info("4. Go to My Ticket page");
+	    generalPage.gotoPage(RailwayPageTab.MYTICKET);
+
+	    MyTicketPage myTicketPage = new MyTicketPage();
+
+	    Assert.assertTrue(
+	            myTicketPage.isTicketPresent(expectedTicket)
+	    );
+
+	    log.info("5. Cancel ticket");
+	    myTicketPage.cancelTicket(expectedTicket);
+
+	    log.info("6. Verify ticket disappeared");
+
+	    Assert.assertFalse(
+	            myTicketPage.isTicketPresent(expectedTicket),
+	            "Ticket was not removed!"
+	    );
 	}
+
 	
 	public void createAccout(String email, String password, String confirmPassword, String pid) {
         Constant.WEBDRIVER.switchTo().newWindow(WindowType.TAB);

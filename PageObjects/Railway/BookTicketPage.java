@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Common.Ticket;
+import Common.TicketTableComponent;
 import Common.Utilities;
 import Constant.Constant;
 
@@ -173,67 +174,16 @@ public class BookTicketPage extends GeneralPage {
 	}
 	
 	
-	private Map<String, Integer> getHeaderIndexMap() {
+	private TicketTableComponent ticketTable =
+            new TicketTableComponent();
 
-	    List<WebElement> headers =
-	            Constant.WEBDRIVER.findElements(tableHeaders);
+    public List<Ticket> getAllTickets() {
+        return ticketTable.getAllTickets();
+    }
 
-	    Map<String, Integer> headerMap = new HashMap<>();
-
-	    for (int i = 0; i < headers.size(); i++) {
-	        headerMap.put(headers.get(i).getText().trim(), i);
-	        
-	    }
-	    log.info("HeaderMap: " + headerMap);
-	    return headerMap;
-	}
-
-	
-	public List<Ticket> getAllTickets() {
-
-	    Utilities.waitForVisible(tableHeaders);
-
-	    Map<String, Integer> headerMap = getHeaderIndexMap();
-
-	    List<WebElement> rows =
-	            Constant.WEBDRIVER.findElements(tableRows);
-
-	    List<Ticket> tickets = new ArrayList<>();
-
-	    for (WebElement row : rows) {
-
-	        List<WebElement> cells =
-	                row.findElements(By.tagName("td"));
-
-	        Ticket ticket = new Ticket(
-	                getCell(cells, headerMap, "Depart Station"),
-	                getCell(cells, headerMap, "Arrive Station"),
-	                getCell(cells, headerMap, "Seat Type"),
-	                getCell(cells, headerMap, "Depart Date"),
-	                getCell(cells, headerMap, "Book Date"),
-	                getCell(cells, headerMap, "Expired Date"),
-	                getCell(cells, headerMap, "Amount"),
-	                getCell(cells, headerMap, "Total Price")
-	        );
-
-	        tickets.add(ticket);
-	    }
-
-	    return tickets;
-	}
-
-
-	
-	private String getCell(List<WebElement> cells, Map<String, Integer> headerMap, String columnName) {
-	
-		Integer index = headerMap.get(columnName);
-		
-		if (index == null || index >= cells.size()) {
-		return "";
-		}
-		
-		return cells.get(index).getText().trim();
-	}
+    public boolean isTicketPresent(Ticket ticket) {
+        return ticketTable.isTicketPresent(ticket);
+    }
 
 
 }

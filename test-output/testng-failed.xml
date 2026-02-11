@@ -7,7 +7,7 @@
         <methods>
           <include name="initalTest"/>
           <include name="beforeMethod"/>
-          <include name="TC15"/>
+          <include name="TC16"/>
         </methods>
       </class> <!-- Railway.BookTicketTest -->
     </classes>

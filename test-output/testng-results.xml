@@ -1,24 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
+<testng-results ignored="4" total="5" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-11T23:50:14 GMT+07:00" name="Default suite" finished-at="2026-02-11T23:50:23 GMT+07:00" duration-ms="8545">
+  <suite started-at="2026-02-12T01:39:14 GMT+07:00" name="Default suite" finished-at="2026-02-12T01:40:11 GMT+07:00" duration-ms="56746">
     <groups>
     </groups>
-    <test started-at="2026-02-11T23:50:14 GMT+07:00" name="Default test" finished-at="2026-02-11T23:50:23 GMT+07:00" duration-ms="8545">
+    <test started-at="2026-02-12T01:39:14 GMT+07:00" name="Default test" finished-at="2026-02-12T01:40:11 GMT+07:00" duration-ms="56746">
       <class name="Railway.BookTicketTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.BookTicketTest@7ec7ffd3]" started-at="2026-02-11T23:50:14 GMT+07:00" name="beforeMethod" finished-at="2026-02-11T23:50:15 GMT+07:00" duration-ms="1139" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.BookTicketTest@5b239d7d]" started-at="2026-02-12T01:39:14 GMT+07:00" name="beforeMethod" finished-at="2026-02-12T01:39:15 GMT+07:00" duration-ms="1132" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="initalTest()[pri:0, instance:Railway.BookTicketTest@7ec7ffd3]" started-at="2026-02-11T23:50:15 GMT+07:00" name="initalTest" finished-at="2026-02-11T23:50:20 GMT+07:00" duration-ms="4176" status="PASS">
+        <test-method is-config="true" signature="initalTest()[pri:0, instance:Railway.BookTicketTest@5b239d7d]" started-at="2026-02-12T01:39:15 GMT+07:00" name="initalTest" finished-at="2026-02-12T01:39:45 GMT+07:00" duration-ms="29905" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initalTest -->
-        <test-method signature="TC15()[pri:0, instance:Railway.BookTicketTest@7ec7ffd3]" started-at="2026-02-11T23:50:20 GMT+07:00" name="TC15" finished-at="2026-02-11T23:50:23 GMT+07:00" duration-ms="3197" status="PASS">
+        <test-method signature="TC16()[pri:0, instance:Railway.BookTicketTest@5b239d7d]" started-at="2026-02-12T01:39:45 GMT+07:00" name="TC16" finished-at="2026-02-12T01:40:11 GMT+07:00" duration-ms="25677" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for Common.TicketTableComponent$$Lambda/0x00000000a1256d18@7bb35cc6
+(tried for 20 seconds with 500 milliseconds interval)
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\anhkh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61722}, goog:processID: 13376, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61722/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5ff2c343f115141cfd7b4d59eed0f8b2]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for Common.TicketTableComponent$$Lambda/0x00000000a1256d18@7bb35cc6
+(tried for 20 seconds with 500 milliseconds interval)
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\anhkh\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61722}, goog:processID: 13376, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61722/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5ff2c343f115141cfd7b4d59eed0f8b2
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+at Common.TicketTableComponent.cancelTicket(TicketTableComponent.java:98)
+at Railway.MyTicketPage.cancelTicket(MyTicketPage.java:12)
+at Railway.BookTicketTest.TC16(BookTicketTest.java:275)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC15 -->
+        </test-method> <!-- TC16 -->
       </class> <!-- Railway.BookTicketTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
