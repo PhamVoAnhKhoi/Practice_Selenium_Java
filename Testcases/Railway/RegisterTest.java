@@ -142,7 +142,7 @@ public class RegisterTest extends BaseTest {
         
 	}
 	
-	public void createAccout(String email, String password, String confirmPassword, String pid) {
+	private void createAccout(String email, String password, String confirmPassword, String pid) {
         Constant.WEBDRIVER.switchTo().newWindow(WindowType.TAB);
         Constant.WEBDRIVER.get(Constant.RAILWAY_URL);
 
@@ -157,7 +157,7 @@ public class RegisterTest extends BaseTest {
         log.info("AC PID: " + account.getPID());  
 	}
 	
-	public void createRandomEmail() {
+	private void createRandomEmail() {
         Constant.WEBDRIVER.get(Constant.RANDOMEMAIL_URL);
         randomEmailTab = Constant.WEBDRIVER.getWindowHandle();
         log.info("Random Email Tab: " + randomEmailTab);
@@ -171,7 +171,7 @@ public class RegisterTest extends BaseTest {
         log.info("Generated Password: " + account.getPassword());
 	}
 	
-	public void confirmCreationRequest() {
+	private void confirmCreationRequest() {
         Constant.WEBDRIVER.switchTo().window(randomEmailTab);
         log.info("Switched back to Random Email tab");
         generalPage.closeAdIfPresent();
@@ -181,7 +181,7 @@ public class RegisterTest extends BaseTest {
         
 	}
 	
-	public void switchToRailwayTab() {
+	private void switchToRailwayTab() {
 	    for (String handle : Constant.WEBDRIVER.getWindowHandles()) {
 	    	Constant.WEBDRIVER.switchTo().window(handle);
 

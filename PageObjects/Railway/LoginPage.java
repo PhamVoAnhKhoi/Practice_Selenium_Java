@@ -35,6 +35,14 @@ public class LoginPage extends GeneralPage {
 		return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
 	}	
 	
+	public WebElement getInputEmail() {
+		return Constant.WEBDRIVER.findElement(inputEmail);
+	}
+	
+	public WebElement getBtnSendInstructions() {
+		return Constant.WEBDRIVER.findElement(btnSendInstructions);
+	}
+	
 	public WebElement getLBLForgotPassword() {
 		return Constant.WEBDRIVER.findElement(lblForgotPassword);
 	}
@@ -85,6 +93,12 @@ public class LoginPage extends GeneralPage {
 	public void navigateToForgotPasswordForm() {
 		Utilities.waitForVisible(lblForgotPassword);
 		getLBLForgotPassword().click();
+	}
+	
+	public void sendEmailReset(String email) {
+		Utilities.scrollToElement(getBtnSendInstructions());;
+		getInputEmail().sendKeys(email);
+		getBtnSendInstructions().click();
 	}
 	
 }
